@@ -31,9 +31,14 @@ body {
   justify-content: center;
 }
 
-.todo-panel > h1 {
+.todo-panel .title {
+  width: 80%;
+}
+
+.todo-panel .title h1 {
+  text-align: center;
   color: var(--text-color);
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 /* End Todo Panel */
