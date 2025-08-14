@@ -1,2 +1,12 @@
 .my-button {
+  cursor: pointer;
+  color: var(--text-color);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--overlay-color);
+}
+
+.my-button:hover {
+  background-color: var(--selected-color);
 }

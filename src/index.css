@@ -30,6 +30,8 @@ body {
 :root {
   --base-color: rgb(30, 30, 46);
   --text-color: rgb(205, 214, 244);
+  --overlay-color: rgb(108, 112, 134);
+  --selected-color: rgb(147, 153, 178);
 }
 
 /* End Constant */
