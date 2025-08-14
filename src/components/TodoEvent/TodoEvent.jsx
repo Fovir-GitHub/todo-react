@@ -1,11 +1,14 @@
 import React from "react";
 import "./TodoEvent.css";
 import MyCheckBox from "../MyCheckBox/MyCheckBox";
+import MyButton from "../MyButton/MyButton";
 
 export default function TodoEvent({ eventName, done = false }) {
   return (
     <div className="todo-event">
       <MyCheckBox boxStatus={done} eventName={eventName} />
+      <MyButton text={"Edit"} />
+      <MyButton text={"Delete"} />
     </div>
   );
 }
