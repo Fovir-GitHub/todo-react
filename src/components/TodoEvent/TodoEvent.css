@@ -1,0 +1,8 @@
+.todo-event {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
