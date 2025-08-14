@@ -9,6 +9,14 @@ body {
   flex-direction: column;
 }
 
+* {
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
 /*End Reset */
 
 /* Constant */
@@ -57,7 +65,7 @@ body {
 .new-event textarea {
   resize: none;
   overflow: hidden;
-  overflow-wrap: unset;
+  white-space: nowrap;
 }
 
 /* End New Event */
