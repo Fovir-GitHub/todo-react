@@ -61,6 +61,7 @@ body {
 /* New Event */
 
 .new-event {
+  margin-top: 1rem;
   width: 100%;
 }
 
@@ -79,6 +80,11 @@ body {
   overflow: hidden;
   white-space: nowrap;
   width: 50%;
+}
+
+.new-event label {
+  color: var(--text-color);
+  font-size: 2rem;
 }
 
 /* End New Event */
