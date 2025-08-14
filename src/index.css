@@ -54,4 +54,10 @@ body {
   margin-top: 1rem;
 }
 
+.new-event textarea {
+  resize: none;
+  overflow: hidden;
+  overflow-wrap: unset;
+}
+
 /* End New Event */
