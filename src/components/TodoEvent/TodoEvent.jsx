@@ -5,8 +5,7 @@ import MyCheckBox from "../MyCheckBox/MyCheckBox";
 export default function TodoEvent({ eventName, done = false }) {
   return (
     <div className="todo-event">
-      <MyCheckBox boxStatus={done} />
-      <label>{eventName}</label>
+      <MyCheckBox boxStatus={done} eventName={eventName} />
     </div>
   );
 }
