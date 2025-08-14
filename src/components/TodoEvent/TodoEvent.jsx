@@ -7,8 +7,10 @@ export default function TodoEvent({ eventName, done = false }) {
   return (
     <div className="todo-event">
       <MyCheckBox boxStatus={done} eventName={eventName} />
-      <MyButton text={"Edit"} />
-      <MyButton text={"Delete"} />
+      <div className="todo-event-actions">
+        <MyButton text={"Edit"} />
+        <MyButton text={"Delete"} />
+      </div>
     </div>
   );
 }

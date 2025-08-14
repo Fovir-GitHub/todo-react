@@ -4,5 +4,11 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 6rem;
+}
+
+.todo-event-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
