@@ -90,3 +90,13 @@ body {
 }
 
 /* End New Event */
+
+/* Todo List */
+
+.todo-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* End Todo List */
