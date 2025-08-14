@@ -17,6 +17,12 @@ body {
   outline: none;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /*End Reset */
 
 /* Constant */
