@@ -1,0 +1,31 @@
+/* Rest */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/*End Reset */
+
+/* Constant */
+
+:root {
+  --base-color: rgb(30, 30, 46);
+}
+
+/* End Constant */
+
+/* Todo Panel */
+
+.todo-panel {
+  background-color: var(--base-color);
+  min-height: 90vh;
+  width: 80%;
+  margin: auto auto;
+}
+
+/* End Todo Panel */
