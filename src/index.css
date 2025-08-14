@@ -15,6 +15,7 @@ body {
 
 :root {
   --base-color: rgb(30, 30, 46);
+  --text-color: rgb(205, 214, 244);
 }
 
 /* End Constant */
@@ -26,6 +27,13 @@ body {
   min-height: 90vh;
   width: 80%;
   margin: auto auto;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-panel > h1 {
+  color: var(--text-color);
+  font-size: 5rem;
 }
 
 /* End Todo Panel */
