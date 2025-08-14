@@ -93,9 +93,12 @@ body {
 /* Todo List */
 
 .todo-list {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
 }
 
 /* End Todo List */
