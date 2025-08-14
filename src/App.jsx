@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MyButton from "./components/MyButton/MyButton";
 import TodoEvent from "./components/TodoEvent/TodoEvent";
-import MyCheckBox from "./components/MyCheckBox/MyCheckBox";
 
 export default function App() {
+  const [inputContent, setInputContent] = useState("");
+  const [todoEvents, setTodoEvents] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("todo-events");
+    if (saved) setTodoEvents(JSON.parse(saved));
+  }, []);
+
+  function handleSave(eventArray) {
+    localStorage.setItem("todo-events", JSON.stringify(eventArray));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newEvent = { name: inputContent, done: false };
+    setTodoEvents((prevEvents) => {
+      const updated = [...prevEvents, newEvent];
+      handleSave(updated);
+      return updated;
+    });
+    setInputContent("");
+  }
+
   return (
     <>
       <div className="todo-panel">
@@ -13,24 +35,27 @@ export default function App() {
         </div>
 
         <div className="new-event">
-          <form method="post">
+          <form method="get" onSubmit={handleSubmit}>
             <label htmlFor="event-content">Event</label>
             <textarea
               name="event-content"
               className="event-content"
               rows={1}
+              value={inputContent}
+              onChange={(e) => setInputContent(e.target.value)}
             ></textarea>
-            <MyButton type="button" text="Add Event" />
+            <MyButton type="submit" text="Add Event" />
           </form>
         </div>
 
         <div className="todo-list">
-          <TodoEvent eventName={"Test"} done={"true"} />
-          <TodoEvent eventName={"Test"} />
-          <TodoEvent eventName={"Test"} />
-          <TodoEvent eventName={"Test"} />
-          <TodoEvent eventName={"Test"} />
-          <TodoEvent eventName={"Test"} />
+          {todoEvents.map((todo, index) => (
+            <TodoEvent
+              key={index}
+              eventName={todo.name}
+              done={todo.done}
+            />
+          ))}
         </div>
       </div>
     </>
