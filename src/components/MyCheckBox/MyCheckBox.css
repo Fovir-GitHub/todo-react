@@ -1,0 +1,72 @@
+/* Customize Label */
+
+.my-checkbox {
+  display: block;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding-left: 4rem;
+  font-size: 2rem;
+}
+
+/* End Customize Label */
+
+/* Hide Default Input */
+
+.my-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* End Hide Default Input */
+
+/* Custom Checkbox */
+
+.checkmark {
+  --checkmark-size: 2.5rem;
+  height: var(--checkmark-size);
+  width: var(--checkmark-size);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--overlay-color);
+}
+
+.my-checkbox:hover input ~ .checkmark {
+  background-color: var(--selected-color);
+}
+
+.my-checkbox input:checked ~ .checkmark {
+  background-color: rgb(116, 199, 236);
+}
+
+.event-name.checked {
+  text-decoration: line-through;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.my-checkbox input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.my-checkbox .checkmark::after {
+  left: 0.9rem;
+  top: 0.5rem;
+  width: 0.7rem;
+  height: 1.2rem;
+  border: solid white;
+  border-width: 0 0.3rem 0.3rem 0;
+  transform: rotate(45deg);
+}
+
+/* End Custom Checkbox */
