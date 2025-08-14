@@ -2,6 +2,7 @@
 
 html {
   font-size: 62.5%;
+  color: var(--text-color);
 }
 
 body {
@@ -54,7 +55,6 @@ body {
 
 .todo-panel .title h1 {
   text-align: center;
-  color: var(--text-color);
   font-size: 3rem;
 }
 
@@ -85,7 +85,6 @@ body {
 }
 
 .new-event label {
-  color: var(--text-color);
   font-size: 2rem;
 }
 
