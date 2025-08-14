@@ -98,7 +98,7 @@ body {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  width: 100%;
+  width: 80%;
 }
 
 /* End Todo List */
