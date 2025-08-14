@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TodoEvent.css";
 import MyCheckBox from "../MyCheckBox/MyCheckBox";
 
