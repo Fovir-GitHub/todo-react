@@ -134,7 +134,7 @@ body {
   display: none;
 }
 
-@media screen and (width <= 400px) {
+@media screen and (width <= 640px) {
   .other-functions {
     flex-direction: column;
   }

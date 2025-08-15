@@ -180,6 +180,18 @@ export default function App() {
               onChange={handleImport}
             />
           </div>
+
+          <div className="source-code">
+            <MyButton
+              type="button"
+              text={"Source Code"}
+              onClick={() => {
+                const a = document.createElement("a");
+                a.href = "https://github.com/Fovir-GitHub/todo-react";
+                a.click();
+              }}
+            />
+          </div>
         </div>
       </div>
     </>
