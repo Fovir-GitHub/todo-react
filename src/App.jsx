@@ -3,18 +3,23 @@ import MyButton from "./components/MyButton/MyButton";
 import TodoEvent from "./components/TodoEvent/TodoEvent";
 
 export default function App() {
+  // Textarea.
   const [inputContent, setInputContent] = useState("");
+  // Event list.
   const [todoEvents, setTodoEvents] = useState([]);
 
+  // Load events from `localStorage`.
   useEffect(() => {
     const saved = localStorage.getItem("todo-events");
     if (saved) setTodoEvents(JSON.parse(saved));
   }, []);
 
+  // Save events to `localStorage`.
   function handleSave(eventArray) {
     localStorage.setItem("todo-events", JSON.stringify(eventArray));
   }
 
+  // Handle submiting the form.
   function handleSubmit(e) {
     e.preventDefault();
     const newEvent = { name: inputContent, done: false };
