@@ -37,7 +37,7 @@
         echo "Node: $(node -v), pnpm: $(pnpm -v)"
 
         alias dev="pnpm vite --host 127.0.0.1 --open"
-        alias built="pnpm vite build"
+        alias build="pnpm vite build"
 
         trap 'echo "Leaving the development environment!"' EXIT
       '';
