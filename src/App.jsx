@@ -41,6 +41,22 @@ export default function App() {
     );
   }
 
+  // Edit event by id.
+  function handleEditById(id) {
+    const newEventContent = prompt("Please enter new event");
+    if (!newEventContent) {
+      return;
+    }
+
+    setTodoEvents((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, name: newEventContent } : todo,
+      ),
+    );
+
+    return newEventContent;
+  }
+
   // Submit when pressing enter.
   function handleKeyDown(e) {
     if (e.key === "Enter") {
@@ -76,10 +92,10 @@ export default function App() {
           {todoEvents.map((todo) => (
             <TodoEvent
               key={todo.id}
-              id={todo.id}
               eventName={todo.name}
               done={todo.done}
               onToggle={() => toggleDoneById(todo.id)}
+              onEdit={() => handleEditById(todo.id)}
             />
           ))}
         </div>

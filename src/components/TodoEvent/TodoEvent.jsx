@@ -6,6 +6,7 @@ import MyButton from "../MyButton/MyButton";
 export default function TodoEvent({
   eventName,
   onToggle,
+  onEdit,
   done = false,
 }) {
   return (
@@ -16,7 +17,7 @@ export default function TodoEvent({
         onToggle={onToggle}
       />
       <div className="todo-event-actions">
-        <MyButton text={"Edit"} />
+        <MyButton text={"Edit"} onClick={onEdit} />
         <MyButton text={"Delete"} />
       </div>
     </div>
