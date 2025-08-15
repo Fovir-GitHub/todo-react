@@ -67,6 +67,7 @@ export default function App() {
     setTodoEvents((prev) => prev.filter((todo) => todo.done !== true));
   }
 
+  // Export todo data.
   function handleExport() {
     const jsonString = JSON.stringify(todoEvents, null, 2);
     const blob = new Blob([jsonString], { type: "application/json" });
