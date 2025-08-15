@@ -67,6 +67,17 @@ export default function App() {
     setTodoEvents((prev) => prev.filter((todo) => todo.done !== true));
   }
 
+  function handleExport() {
+    const jsonString = JSON.stringify(todoEvents, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "todo.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   // Submit when pressing enter.
   function handleKeyDown(e) {
     if (e.key === "Enter") {
@@ -117,7 +128,11 @@ export default function App() {
             text="Remove Finished"
             onClick={handleRemoveFinished}
           />
-          <MyButton type="button" text="Export" />
+          <MyButton
+            type="button"
+            text="Export"
+            onClick={handleExport}
+          />
         </div>
       </div>
     </>
