@@ -117,4 +117,8 @@ body {
   justify-content: center;
 }
 
+.import-data input {
+  display: none;
+}
+
 /* End Other Functions */

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MyButton from "./components/MyButton/MyButton";
 import TodoEvent from "./components/TodoEvent/TodoEvent";
 
@@ -11,6 +11,32 @@ export default function App() {
     const saved = localStorage.getItem("todo-events");
     return saved ? JSON.parse(saved) : [];
   });
+
+  const fileInputRef = useRef(null);
+
+  function handleImportClick() {
+    fileInputRef.current.click();
+  }
+
+  function handleImport(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const json = JSON.parse(event.target.result);
+        const saved = JSON.parse(localStorage.getItem("todo-events"));
+        const merged = [...saved, ...json];
+        localStorage.setItem("todo-events", JSON.stringify(merged));
+        setTodoEvents(merged);
+      } catch (err) {
+        alert("Invalid JSON!");
+      }
+    };
+
+    reader.readAsText(file);
+  }
 
   // Update `todoEvents` when it changes.
   useEffect(() => {
@@ -134,6 +160,19 @@ export default function App() {
             text="Export"
             onClick={handleExport}
           />
+          <div className="import-data">
+            <MyButton
+              type="button"
+              text="Import"
+              onClick={handleImportClick}
+            />
+            <input
+              type="file"
+              accept=".json"
+              ref={fileInputRef}
+              onChange={handleImport}
+            />
+          </div>
         </div>
       </div>
     </>
