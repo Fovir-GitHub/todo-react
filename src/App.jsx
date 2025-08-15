@@ -116,6 +116,7 @@ export default function App() {
             text="Remove Finished"
             onClick={handleRemoveFinished}
           />
+          <MyButton type="button" text="Export" />
         </div>
       </div>
     </>

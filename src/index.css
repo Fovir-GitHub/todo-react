@@ -108,6 +108,13 @@ body {
 .other-functions {
   margin-top: auto;
   margin-bottom: 4rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 /* End Other Functions */
