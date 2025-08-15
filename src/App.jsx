@@ -32,6 +32,7 @@ export default function App() {
     setInputContent("");
   }
 
+  // Toggle done by id.
   const toggleDoneById = (id) => {
     setTodoEvents((prev) =>
       prev.map((todo) =>
