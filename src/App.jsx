@@ -31,6 +31,14 @@ export default function App() {
     setInputContent("");
   }
 
+  // Submit when pressing enter.
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  }
+
   return (
     <>
       <div className="todo-panel">
@@ -48,6 +56,7 @@ export default function App() {
               rows={1}
               value={inputContent}
               onChange={(e) => setInputContent(e.target.value)}
+              onKeyDown={handleKeyDown}
             ></textarea>
             <MyButton type="submit" text="Add Event" />
           </form>
