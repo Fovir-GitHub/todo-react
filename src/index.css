@@ -105,9 +105,10 @@ body {
 
 .todo-list {
   margin-top: 2rem;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.6rem;
   align-items: center;
   width: 80%;
 }
