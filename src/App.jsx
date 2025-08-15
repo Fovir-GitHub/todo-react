@@ -6,30 +6,39 @@ export default function App() {
   // Textarea.
   const [inputContent, setInputContent] = useState("");
   // Event list.
-  const [todoEvents, setTodoEvents] = useState([]);
-
-  // Load events from `localStorage`.
-  useEffect(() => {
+  const [todoEvents, setTodoEvents] = useState(() => {
+    // Load events from `localStorage`.
     const saved = localStorage.getItem("todo-events");
-    if (saved) setTodoEvents(JSON.parse(saved));
-  }, []);
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  // Save events to `localStorage`.
-  function handleSave(eventArray) {
-    localStorage.setItem("todo-events", JSON.stringify(eventArray));
-  }
+  // Update `todoEvents` when it changes.
+  useEffect(() => {
+    localStorage.setItem("todo-events", JSON.stringify(todoEvents));
+  }, [todoEvents]);
 
   // Handle submiting the form.
   function handleSubmit(e) {
     e.preventDefault();
-    const newEvent = { name: inputContent, done: false };
+    const newEvent = {
+      id: crypto.randomUUID(),
+      name: inputContent,
+      done: false,
+    };
     setTodoEvents((prevEvents) => {
       const updated = [...prevEvents, newEvent];
-      handleSave(updated);
       return updated;
     });
     setInputContent("");
   }
+
+  const toggleDoneById = (id) => {
+    setTodoEvents((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, done: !todo.done } : todo,
+      ),
+    );
+  };
 
   // Submit when pressing enter.
   function handleKeyDown(e) {
@@ -63,11 +72,13 @@ export default function App() {
         </div>
 
         <div className="todo-list">
-          {todoEvents.map((todo, index) => (
+          {todoEvents.map((todo) => (
             <TodoEvent
-              key={index}
+              key={todo.id}
+              id={todo.id}
               eventName={todo.name}
               done={todo.done}
+              onToggle={() => toggleDoneById(todo.id)}
             />
           ))}
         </div>

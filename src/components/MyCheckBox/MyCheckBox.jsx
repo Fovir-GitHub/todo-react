@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./MyCheckBox.css";
 
-export default function MyCheckBox({ eventName, boxStatus = false }) {
+export default function MyCheckBox({
+  eventName,
+  onToggle,
+  boxStatus = false,
+}) {
   const [status, setStatus] = useState(boxStatus);
 
   return (
@@ -14,7 +18,7 @@ export default function MyCheckBox({ eventName, boxStatus = false }) {
       <span className={`event-name ${status ? "checked" : ""}`}>
         {eventName}
       </span>
-      <input type="checkbox" checked={status} />
+      <input type="checkbox" checked={status} onChange={onToggle} />
       <span className="checkmark"></span>
     </label>
   );
