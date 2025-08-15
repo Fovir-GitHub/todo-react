@@ -62,6 +62,7 @@ export default function App() {
     setTodoEvents((prev) => prev.filter((todo) => todo.id !== id));
   }
 
+  // Remove all finished events.
   function handleRemoveFinished() {
     setTodoEvents((prev) => prev.filter((todo) => todo.done !== true));
   }
