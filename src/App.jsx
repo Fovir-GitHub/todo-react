@@ -33,13 +33,13 @@ export default function App() {
   }
 
   // Toggle done by id.
-  const toggleDoneById = (id) => {
+  function toggleDoneById(id) {
     setTodoEvents((prev) =>
       prev.map((todo) =>
         todo.id === id ? { ...todo, done: !todo.done } : todo,
       ),
     );
-  };
+  }
 
   // Submit when pressing enter.
   function handleKeyDown(e) {
