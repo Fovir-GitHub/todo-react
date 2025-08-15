@@ -88,6 +88,17 @@ body {
   font-size: 2rem;
 }
 
+@media screen and (width <= 640px) {
+  html {
+    font-size: 50%;
+  }
+
+  .new-event form {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+}
+
 /* End New Event */
 
 /* Todo List */
@@ -119,6 +130,12 @@ body {
 
 .import-data input {
   display: none;
+}
+
+@media screen and (width <= 400px) {
+  .other-functions {
+    flex-direction: column;
+  }
 }
 
 /* End Other Functions */
