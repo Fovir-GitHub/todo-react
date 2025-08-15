@@ -49,6 +49,10 @@ export default function App() {
   // Handle submiting the form.
   function handleSubmit(e) {
     e.preventDefault();
+    if (!inputContent) {
+      return;
+    }
+
     const newEvent = {
       id: crypto.randomUUID(),
       name: inputContent,
