@@ -57,8 +57,13 @@ export default function App() {
     return newEventContent;
   }
 
+  // Delete item by id.
   function handleDeleteById(id) {
     setTodoEvents((prev) => prev.filter((todo) => todo.id !== id));
+  }
+
+  function handleRemoveFinished() {
+    setTodoEvents((prev) => prev.filter((todo) => todo.done !== true));
   }
 
   // Submit when pressing enter.
@@ -103,6 +108,14 @@ export default function App() {
               onDelete={() => handleDeleteById(todo.id)}
             />
           ))}
+        </div>
+
+        <div className="other-functions">
+          <MyButton
+            type="button"
+            text="Remove Finished"
+            onClick={handleRemoveFinished}
+          />
         </div>
       </div>
     </>
