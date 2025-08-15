@@ -12,12 +12,15 @@ export default function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  // For importing data.
   const fileInputRef = useRef(null);
 
+  // When click the import button.
   function handleImportClick() {
     fileInputRef.current.click();
   }
 
+  // Import JSON file and parse it.
   function handleImport(e) {
     const file = e.target.files[0];
     if (!file) return;
