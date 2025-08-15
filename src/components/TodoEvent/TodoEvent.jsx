@@ -7,6 +7,7 @@ export default function TodoEvent({
   eventName,
   onToggle,
   onEdit,
+  onDelete,
   done = false,
 }) {
   return (
@@ -18,7 +19,7 @@ export default function TodoEvent({
       />
       <div className="todo-event-actions">
         <MyButton text={"Edit"} onClick={onEdit} />
-        <MyButton text={"Delete"} />
+        <MyButton text={"Delete"} onClick={onDelete} />
       </div>
     </div>
   );

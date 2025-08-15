@@ -57,6 +57,10 @@ export default function App() {
     return newEventContent;
   }
 
+  function handleDeleteById(id) {
+    setTodoEvents((prev) => prev.filter((todo) => todo.id !== id));
+  }
+
   // Submit when pressing enter.
   function handleKeyDown(e) {
     if (e.key === "Enter") {
@@ -96,6 +100,7 @@ export default function App() {
               done={todo.done}
               onToggle={() => toggleDoneById(todo.id)}
               onEdit={() => handleEditById(todo.id)}
+              onDelete={() => handleDeleteById(todo.id)}
             />
           ))}
         </div>
